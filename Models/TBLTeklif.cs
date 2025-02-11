@@ -11,5 +11,7 @@
         public string TeklifBaslik { get; set; }
 
         public int Fiyat { get; set; }
+
+        
     }
 }

@@ -1,0 +1,12 @@
+﻿@model TBLMusteri
+<div class="col-md-12">
+    <h5>Müşteri Güncelle</h5>
+    <form action="/Home/UpdateMusteri" method="post" autocomplete="off">
+        <input type="text" class="form-control mb-2" placeholder="Müşteri Adı" name="MusteriAdi" required value="@Model.MusteriAdi">
+        <input type="text" class="form-control mb-2" placeholder="Müşteri Soyadı" name="MusteriSoyadi" required value="@Model.MusteriSoyadi">
+        <input type="email" class="form-control mb-2" placeholder="E-posta" name="Eposta" required value="@Model.Eposta">
+        <input type="tel" class="form-control mb-2" placeholder="Telefon Numarası" name="Telefon" required value="@Model.Telefon">
+        <input type="hidden" value="@Model.Id" name="Id" />
+        <button class="btn btn-primary w-100">Ekle</button>
+    </form>
+</div>

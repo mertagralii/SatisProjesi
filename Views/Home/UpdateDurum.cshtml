@@ -1,0 +1,9 @@
+﻿@model TBLDurumlar
+<div class="col-md-12">
+    <h5>Durum Ekle</h5>
+    <form action="/Home/InsertDurum" method="post" autocomplete="off">
+        <input type="text" class="form-control mb-2" placeholder="Durum" name="DurumAdi" required value="@Model.DurumAdi">
+        <input type="number" class="form-control mb-2" placeholder="Sıra" name="DurumSirasi" required value="@Model.DurumSirasi">
+        <button class="btn btn-primary w-100">Ekle</button>
+    </form>
+</div>

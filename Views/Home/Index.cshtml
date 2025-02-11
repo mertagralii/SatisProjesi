@@ -1,8 +1,131 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IndexViewModel
+<div class="container mt-4">
+	<h2 class="text-center">Satış Yönetim Sistemi</h2>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+	<!-- Teklif Listesi -->
+	<div class="row mt-4">
+		<div class="col-md-12">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						@foreach (var durum in Model.Durumlar)
+						{
+							<th>@durum.DurumAdi</th>
+						}
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var durum in Model.Durumlar)
+					{
+					<td>
+							@foreach (var teklif in durum.Teklifler)
+							{
+							 <p>@teklif.TeklifBaslik  <a href="/Home/UpdateTeklif/@teklif.Id">güncelle</a> / <a href="/Home/DeleteTeklif/@teklif.Id" onclick="return confirm('Silmek İstediğinize emin misiniz?')">sil</a></p>
+							}
+
+
+					</td>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<!-- Teklif Ekle, Durum Ekle & Müşteri Ekle -->
+	<div class="row mt-4">
+		<div class="col-md-4">
+			<h5>Teklif Ekle</h5>
+			<form action="/Home/InsertTeklif" method="post" autocomplete="off">
+				<input type="text" class="form-control mb-2" placeholder="Teklif Başlığı" name="TeklifBaslik" required>
+				<select class="form-control mb-2" name="MusteriId">
+					<option value="" selected disabled>Müşteri Seçim Yapınız</option>
+					@foreach (var musteri in Model.Musteriler)
+					{
+						<option value="@musteri.Id">@musteri.MusteriAdi @musteri.MusteriSoyadi</option>
+					}
+				</select>
+				<input type="number" class="form-control mb-2" placeholder="Fiyat" name="Fiyat" required>
+				<select class="form-control mb-2" name="DurumId">
+					<option value="" selected disabled>Durum Seçimi Yapınız</option>
+					@foreach (var durum in Model.Durumlar)
+					{
+						<option value="@durum.Id">@durum.DurumAdi</option>
+					}
+				</select>
+				<button class="btn btn-primary w-100">Ekle</button>
+			</form>
+		</div>
+		<div class="col-md-4">
+			<h5>Durum Ekle</h5>
+			<form action="/Home/InsertDurum" method="post" autocomplete="off">
+				<input type="text" class="form-control mb-2" placeholder="Durum" name="DurumAdi" required>
+				<input type="number" class="form-control mb-2" placeholder="Sıra" name="DurumSirasi" required>
+				<button class="btn btn-primary w-100">Ekle</button>
+			</form>
+		</div>
+		<div class="col-md-4">
+			<h5>Müşteri Ekle</h5>
+			<form action="/Home/InsertMusteri" method="post" autocomplete="off">
+				<input type="text" class="form-control mb-2" placeholder="Müşteri Adı" name="MusteriAdi" required>
+				<input type="text" class="form-control mb-2" placeholder="Müşteri Soyadı" name="MusteriSoyadi" required>
+				<input type="email" class="form-control mb-2" placeholder="E-posta" name="Eposta" required>
+				<input type="tel" class="form-control mb-2" placeholder="Telefon Numarası" name="Telefon" required>
+				<button class="btn btn-primary w-100">Ekle</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Durumlar & Müşteri Listesi -->
+	<div class="row mt-4">
+		<div class="col-md-6">
+			<h5>Durumlar</h5>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Durum</th>
+						<th>Sıra</th>
+						<th>İşlem</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var durum in Model.Durumlar)
+					{
+						<tr>
+							<td>@durum.DurumAdi</td>
+							<td>@durum.DurumSirasi</td>
+							<td><a href="/Home/UpdateDurum/@durum.Id">güncelle</a> / <a href="/Home/DeleteDurum/@durum.Id" onclick="return confirm('Silmek İstediğinize emin misiniz?')">sil</a></td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-6">
+			<h5>Müşteri Listesi</h5>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Ad</th>
+						<th>Soyad</th>
+						<th>E-posta</th>
+						<th>Telefon</th>
+						<th>İşlem</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var musteri in Model.Musteriler)
+					{
+						<tr>
+							<td>@musteri.MusteriAdi</td>
+							<td>@musteri.MusteriSoyadi</td>
+							<td>@musteri.Eposta</td>
+							<td>@musteri.Telefon</td>
+							<td><a href="/Home/UpdateMusteri/@musteri.Id">güncelle</a> / <a href="/Home/DeleteMusteri/@musteri.Id" onclick="return confirm('Silmek İstediğinize emin misiniz?')">sil</a></td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
+ <!--Bozduktan sonra CTRL- A CTRL + k +d yap düzelsins->
+ <!--CTRL + ALT YAP YAZ-->

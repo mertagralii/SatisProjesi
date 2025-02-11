@@ -1,0 +1,23 @@
+﻿@model UpdateTeklifViewModel
+<div class="col-md-4">
+	<h5>Teklif Güncelle</h5>
+	<form action="/Home/UpdateTeklif" method="post" autocomplete="off">
+		<input type="text" class="form-control mb-2" placeholder="Teklif Başlığı" name="TeklifBaslik" value="@Model.Teklifler.TeklifBaslik" required>
+		<select class="form-control mb-2" name="MusteriId">
+			<option value="" selected disabled>Müşteri Seçim Yapınız</option>
+			@foreach (var musteri in Model.Musteriler)
+			{
+				<option value="@musteri.Id">@musteri.MusteriAdi @musteri.MusteriSoyadi</option>
+			}
+		</select>
+		<input type="number" class="form-control mb-2" placeholder="Fiyat" name="Fiyat" value="@Model.Teklifler.Fiyat" required>
+		<select class="form-control mb-2" name="DurumId">
+			<option value="" selected disabled>Durum Seçimi Yapınız</option>
+			@foreach (var durum in Model.Durumlar)
+			{
+				<option value="@durum.Id">@durum.DurumAdi</option>
+			}
+		</select>
+		<button class="btn btn-primary w-100">Ekle</button>
+	</form>
+</div>

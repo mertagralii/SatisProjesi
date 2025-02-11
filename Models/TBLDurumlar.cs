@@ -8,5 +8,7 @@
         public string DurumAdi { get; set; }
 
         public int DurumSirasi { get; set; }
+
+        public List<TBLTeklif> Teklifler { get; set; }
     }
 }
