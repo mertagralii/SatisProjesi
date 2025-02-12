@@ -10,5 +10,7 @@
         public int DurumSirasi { get; set; }
 
         public List<TBLTeklif> Teklifler { get; set; }
+
+        
     }
 }

@@ -8,5 +8,6 @@
         public List<TBLMusteri> Musteriler  { get; set; }
 
         public List<SatisListesiLeftJoin> Teklifler { get; set; }
+
     }
 }

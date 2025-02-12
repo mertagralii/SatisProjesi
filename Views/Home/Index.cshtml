@@ -10,7 +10,7 @@
 					<tr>
 						@foreach (var durum in Model.Durumlar)
 						{
-							<th>@durum.DurumAdi</th>
+							<th>@durum.DurumAdi (@ViewBag.TeklifSayisi)</th>
 						}
 					</tr>
 				</thead>
@@ -20,7 +20,15 @@
 					<td>
 							@foreach (var teklif in durum.Teklifler)
 							{
-							 <p>@teklif.TeklifBaslik  <a href="/Home/UpdateTeklif/@teklif.Id">güncelle</a> / <a href="/Home/DeleteTeklif/@teklif.Id" onclick="return confirm('Silmek İstediğinize emin misiniz?')">sil</a></p>
+							  <div class="d-flex flex-column">
+								  <p class="mb-0 fw-bold">@teklif.TeklifBaslik</p>
+								  <p class="mb-0">@teklif.Fiyat.ToString("C")</p>
+							  </div>
+
+							  <div class="mt-1">
+								<a href="/Home/UpdateTeklif/@teklif.Id" class="btn btn-primary">Güncelle</a>
+								<a href="/Home/DeleteTeklif/@teklif.Id" class="btn btn-danger" onclick="return confirm('Silmek İstediğinize emin misiniz?')">Sil</a>
+							  </div>
 							}
 
 

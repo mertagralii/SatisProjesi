@@ -42,12 +42,17 @@ namespace SatisProjesi.Controllers
 
                 foreach (var teklif in teklifListesi)
                 {
+
                     if (teklif.DurumId == durum.Id)
                     {
                         durum.Teklifler.Add(teklif);
                     }
+
                 }
+                ViewBag.TeklifSayisi = durum.Teklifler.Count();
             }
+
+           
 
 
 
@@ -177,18 +182,20 @@ namespace SatisProjesi.Controllers
 
             var durumlarListesi = _connection.Query<TBLDurumlar>("SELECT * FROM TBLDurumlar").ToList();
 
-            var musteriListesi = _connection.Query<TBLMusteri>("SELECT * FROM TBLMusteri").ToList();
+              var musteriListesi = _connection.Query<TBLMusteri>("SELECT * FROM TBLMusteri").ToList();
 
           
 
-            var model = new UpdateTeklifViewModel()
+                                    var model = new UpdateTeklifViewModel()
             {
                 Durumlar = durumlarListesi,
                 Musteriler = musteriListesi,
                 Teklifler = selectedTeklif
             };
 
-           
+            
+
+
 
             return View(model); 
         }
