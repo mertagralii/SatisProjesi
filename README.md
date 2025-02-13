@@ -1,15 +1,16 @@
-# İş Takip Sistemi
+# Satış Yönetim Sistemi
 
-Bu proje, kullanıcı bazında iş takibini kolaylaştırmak amacıyla geliştirilmiş bir ASP.NET Core MVC uygulamasıdır. Kullanıcılar iş ekleyebilir, düzenleyebilir, silebilir ve durumlarını değiştirebilir.
+Bu proje, satış yönetimi süreçlerini kolaylaştırmak için geliştirilmiş bir ASP.NET Core MVC uygulamasıdır. Teklif yönetimi, müşteri bilgileri ve satış aşamalarını takip etmeyi sağlar. 
 
-Bu proje, Acun Medya Akademi Genişletilmiş Back-End Yazılım Uzmanlığı eğitiminin temel eğitimini tamamladıktan sonra, uzmanlık aşamasına geçiş sürecindeki kamp döneminde geliştirdim.
+Bu proje, Acun Medya Akademi Genişletilmiş Back-End Yazılım Uzmanlığı eğitiminin temel eğitimini tamamladıktan sonra, uzmanlık aşamasına geçiş sürecindeki kamp döneminde geliştirilmiştir.
 
 ## 🚀 Özellikler
 
-- 📊 **Raporlama**: Kullanıcı bazında aktif ve tamamlanmış işlerin toplamını listeleyen bir rapor paneli.
-- 📋 **İş Listesi**: İşlerin durumuna göre "Aktif" veya "Tamamlandı" bilgilerini içeren listeleme ekranı.
-- ✏ **CRUD İşlemleri**: İş oluşturma, düzenleme, silme ve durum değiştirme özellikleri.
-- 🔍 **Detay Sayfası**: Belirli bir işe atanmış kullanıcı ve detaylı açıklama bilgilerinin yer aldığı ekran.
+- 📌**Satış Aşamaları**: Teklif, Pazarlık, Kazanılan ve Kaybedilen projelerin kategorilere ayrıldığı listeleme ekranı.
+
+- 📋 **Teklif Yönetimi**: Teklif başlığı, müşteri adı ve fiyat bilgisi ile yeni teklifler ekleme, mevcut teklifleri güncelleme ve silme işlemleri.
+
+- 🔄 **Durum Yönetimi**: Projelerin durumlarına göre sıralanmasını sağlayan düzenleme seçenekleri.
 
 ## 🛠 Kullanılan Teknolojiler
 
@@ -22,7 +23,7 @@ Bu proje, Acun Medya Akademi Genişletilmiş Back-End Yazılım Uzmanlığı eğ
 
 1. **Projeyi klonlayın:**
    ```sh
-   git clone https://github.com/mertagralii/IsTakipSistemi.git
+   git clone https://github.com/mertagralii/SatisProjesi.git
    ```
 2. **Bağımlılıkları yükleyin:**
    ```sh
